@@ -8,8 +8,17 @@ set(CMAKE_CXX_STANDARD 20)
 include_directories(${CMAKE_SOURCE_DIR}/libs/raylib/include/)
 include_directories(${CMAKE_SOURCE_DIR}/include/)
 
-set(RAYLIB ${CMAKE_SOURCE_DIR}/libs/raylib/lib/libraylib.a)
-set(RAYLIB ${CMAKE_SOURCE_DIR}/libs/raylib/lib/libraylibdll.a)
+
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(RAYLIB ${CMAKE_SOURCE_DIR}/libs/raylib/lib/mingw/libraylib.a)
+    set(RAYLIB ${CMAKE_SOURCE_DIR}/libs/raylib/lib/mingw/libraylibdll.a)
+    set(DLL_PATH ${CMAKE_SOURCE_DIR}/libs/raylib/lib/mingw/raylib.dll)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    set(RAYLIB ${CMAKE_SOURCE_DIR}/libs/raylib/lib/vc16/raylib.lib)
+    set(RAYLIB ${CMAKE_SOURCE_DIR}/libs/raylib/lib/vc16/raylibdll.lib)
+    set(DLL_PATH ${CMAKE_SOURCE_DIR}/libs/raylib/lib/vc16/raylib.dll)
+endif()
 
 # Добавляем исходные файлы
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -20,7 +29,6 @@ target_link_libraries(MyApp PRIVATE ${RAYLIB})
 
 
 # Путь к файлу .dll
-set(DLL_PATH ${CMAKE_SOURCE_DIR}/libs/raylib/lib/raylib.dll)
 add_custom_command(TARGET MyApp POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${DLL_PATH} $<TARGET_FILE_DIR:MyApp>

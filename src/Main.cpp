@@ -16,7 +16,7 @@ int main(void)
     SetWindowMinSize(480, 272);
     
     Camera2D camera = { 0 };
-    camera.offset = (Vector2){ screenWidth/2.0f, screenHeight/2.0f };
+    camera.offset = Vector2{ (float)screenWidth/2.0f, (float)screenHeight/2.0f };
     camera.rotation = 0.0f;
     camera.zoom = 1.0f;
     
@@ -24,7 +24,7 @@ int main(void)
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         if (IsWindowResized())
-            camera.offset = (Vector2){ GetScreenWidth()/2.0f, GetScreenHeight()/2.0f };
+            camera.offset = Vector2 { GetScreenWidth()/2.0f, GetScreenHeight()/2.0f };
         
         player.OnUpdate(delta);
         camera.target = Vector2 { player.GetPosition().x, player.GetPosition().y};
@@ -33,7 +33,7 @@ int main(void)
             BeginMode2D(camera);
 
                 player.OnDraw();
-                DrawText("Text Depends By Camera", 0, 0, 24, WHITE);
+                DrawText("Text Depends By Camera", 0, 0, 24, BLACK);
 
             EndMode2D();
 
