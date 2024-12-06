@@ -16,7 +16,7 @@ int main(void)
     SetWindowMinSize(480, 272);
     
     Camera2D camera = { 0 };
-    camera.offset = Vector2{ (float)screenWidth/2.0f, (float)screenHeight/2.0f };
+    camera.offset = Vector2{ screenWidth/2.0f, screenHeight/2.0f };
     camera.rotation = 0.0f;
     camera.zoom = 1.0f;
     
