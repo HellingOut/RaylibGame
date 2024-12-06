@@ -1,0 +1,9 @@
+{
+    "game_objects":
+    [
+        {
+            "name":"Player",
+            "position":{ "x" : 0, "y" : 0 }
+        }
+    ]
+}
