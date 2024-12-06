@@ -1,10 +1,9 @@
 #include "Player.h"
 
 Player::Player():
-    direction{ 0, 0 }, velocity{ 0, 0 }
+    direction{ 0, 0 }, velocity{ 0, 0 }, speed{200}
 {
     position = Vector2{0, 0};
-    speed = 200;
 };
 
 void Player::OnUpdate(float delta)
