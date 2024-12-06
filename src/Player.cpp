@@ -1,9 +1,9 @@
 #include "Player.h"
 
-Player::Player():
-    direction{ 0, 0 }, velocity{ 0, 0 }, speed{200}
+Player::Player() :
+    direction{ 0, 0 }, velocity{ 0, 0 }, speed{ 200 }
 {
-    position = Vector2{0, 0};
+    position = Vector2{ 0, 0 };
 };
 
 void Player::OnUpdate(float delta)
@@ -21,6 +21,7 @@ void Player::OnUpdate(float delta)
 void Player::OnDraw()
 {
     DrawRectangleV({position.x - 32, position.y - 32}, {64, 64}, LIGHTGRAY);
+
 }
 
 void Player::OnDrawGUI()
