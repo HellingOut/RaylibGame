@@ -1,6 +1,7 @@
 #include "Player.h"
 
-Player::Player()
+Player::Player():
+    direction{ 0, 0 }, velocity{ 0, 0 }
 {
     position = Vector2{0, 0};
     speed = 200;
