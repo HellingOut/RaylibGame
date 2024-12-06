@@ -1,7 +1,8 @@
 #pragma once
 
 #include <raylib.h>
-#include <GameObject.h>
+#include "GameObject.h"
+
 class Player: public GameObject
 {
     Vector2 velocity;
