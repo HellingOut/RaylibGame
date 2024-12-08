@@ -28,6 +28,5 @@ public:
     void OnDraw();
     void OnDrawGUI();
 
-
     ~Room();
 };
