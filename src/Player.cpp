@@ -18,7 +18,7 @@ void Player::OnUpdate(float delta)
     position.y += velocity.y;
 }
 
-void Player::OnDraw()
+void  Player::OnDraw()  
 {
     DrawRectangleV({position.x - 32, position.y - 32}, {64, 64}, LIGHTGRAY);
 

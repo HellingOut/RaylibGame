@@ -39,7 +39,7 @@ int main(void)
         
         BeginDrawing();
         
-        DrawFPS(GetScreenWidth()-GetScreenWidth()/14.54, GetScreenHeight()/100);
+        DrawFPS(0,0);
         ClearBackground(RAYWHITE);
         BeginMode2D(camera);
 

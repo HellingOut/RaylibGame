@@ -12,5 +12,7 @@ class Entity{
     public:
         Vector2 GetPosition();
         void SetPosition(Vector2 new_position);
+        virtual ~Entity() {};
         friend class Room;
+        friend class EntityFactory;
 };
