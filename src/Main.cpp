@@ -1,6 +1,7 @@
 #include <raylib.h>
 #include "Player.h"
 #include "Room.h"
+#include "../build/EntityFactory.h"
 
 int main(void)
 {
@@ -18,7 +19,7 @@ int main(void)
 
     Camera2D camera = { 0 };
     
-    Player player;
+    //EntityFactory factory;
 
     camera.offset = Vector2{ screenWidth / 2.0f, screenHeight / 2.0f };
     camera.rotation = 0.0f;
