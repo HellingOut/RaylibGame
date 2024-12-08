@@ -1,6 +1,6 @@
 #include <raylib.h>
 #include "Player.h"
-
+#include "Room.h"
 
 int main(void)
 {
@@ -11,7 +11,7 @@ int main(void)
     const int screenHeight = 900;
 
     InitWindow(screenWidth, screenHeight, "Raylib");
-    Player player = Player();
+    Player player;
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     SetWindowMinSize(480, 272);
     SetTargetFPS(60);
@@ -19,6 +19,10 @@ int main(void)
     camera.offset = Vector2{ screenWidth / 2.0f, screenHeight / 2.0f };
     camera.rotation = 0.0f;
     camera.zoom = 1.0f;
+    
+    Room main_room;
+
+    main_room.AddEntity(*player);
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key

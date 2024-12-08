@@ -1,16 +1,40 @@
 #include "Room.h"
 
-Room::Room(){};
-Room::Room(std::string file_path){};
+Room::Room() :
+	size{256, 265}
+{};
+Room::Room(std::string file_path):
+	size{ 256, 265 } 
+{};
 
-void Room::AddObjectsFromFile(){};
 void Room::InitObjects(){};
 
 void Room::StartRoom(){};
-void Room::AddObject(GameObject* object){};
 
-void Room::OnUpdate(float delta){};
-void Room::OnDraw(){};
-void Room::OnDrawGUI(){};
+void Room::AddEntity(Entity* entity)
+{
+	entities.push_back(entity);
+};
+
+void Room::OnUpdate(float delta)
+{
+	for (auto enitiy : entities) {
+		enitiy->OnUpdate(delta);
+	}
+}
+
+void Room::OnDraw()
+{
+	for (auto enitiy : entities) {
+		enitiy->OnDraw();
+	}
+}
+
+void Room::OnDrawGUI()
+{
+	for (auto enitiy : entities) {
+		enitiy->OnDrawGUI();
+	}
+};
 
 Room::~Room(){};

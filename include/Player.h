@@ -1,9 +1,9 @@
 #pragma once
 
 #include <raylib.h>
-#include "GameObject.h"
+#include "Entity.h"
 
-class Player: public GameObject
+class Player: public Entity
 {
     Vector2 velocity;
     Vector2 direction;

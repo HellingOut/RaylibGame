@@ -1,14 +1,20 @@
 #pragma once
 
-#include "GameObject.h"
+#include "Entity.h"
 #include <vector>
 #include <string>
 
-class Room: GameObject
+class Room: Entity
 {
-    std::vector<GameObject*> objects;
     std::string file_path;
-    void AddObjectsFromFile();
+
+    std::string identifier;
+    Vector2 size;
+    
+    std::vector<std::string> layers;
+
+    std::vector<Entity*> entities;
+
     void InitObjects();
     
 public:
@@ -16,7 +22,7 @@ public:
     Room(std::string file_path);
 
     void StartRoom();
-    void AddObject(GameObject* object);
+    void AddEntity(Entity* entity);
     
     void OnUpdate(float delta);
     void OnDraw();

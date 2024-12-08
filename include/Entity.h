@@ -2,7 +2,7 @@
 
 #include <raylib.h>
 
-class GameObject{
+class Entity{
     protected:
         Vector2 position;
         float rotation;
@@ -12,4 +12,5 @@ class GameObject{
     public:
         Vector2 GetPosition();
         void SetPosition(Vector2 new_position);
+        friend class Room;
 };

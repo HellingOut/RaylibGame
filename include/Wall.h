@@ -1,9 +1,9 @@
 #pragma once
 
-#include "GameObject.h"
+#include "Entity.h"
 #include <raylib.h>
 
-class Wall: GameObject
+class Wall: Entity
 {
     Vector2 size;
     public:
